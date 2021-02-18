@@ -1,0 +1,94 @@
+<script>
+function computerPlay() {
+
+let rngNumber = Math.random() * (2 - 0) + 0;
+
+if (Math.round(rngNumber) == 0) {
+  return "rock";
+} else if (Math.round(rngNumber) == 1) {
+  return "paper";
+} else if (Math.round(rngNumber) == 2) {
+  return "scissors";
+} else {
+  return "MACHINEBROKE";
+}
+
+}
+
+
+var playerSelection;
+var computerSelection;
+
+
+
+
+
+
+
+function playRound(computerSelection, playerSelection,) {
+//playerSelection Loose algo---------------------------------------------------------------------------
+if (computerSelection.toLowerCase() == "rock" && playerSelection.toLowerCase() == "scissors") {
+    console.log(("You Loose! You chose: ".concat(playerSelection)).concat(", Computer chose: ".concat(computerSelection))); 
+    return 2;
+} else if (computerSelection.toLowerCase() == "paper" && playerSelection.toLowerCase() == "rock") {
+    console.log(("You Loose! You chose: ".concat(playerSelection)).concat(", Computer chose: ".concat(computerSelection)));
+    return 2;
+} else if (computerSelection.toLowerCase() == "scissors" && playerSelection.toLowerCase() == "paper") {
+    console.log(("You Loose! You chose: ".concat(playerSelection)).concat(", Computer chose: ".concat(computerSelection)));
+    return 2;
+}
+//playerSelection Win algo---------------------------------------------------------------------------
+else if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "scissors") {
+    console.log(("You Win! You chose: ".concat(playerSelection)).concat(", Computer chose: ".concat(computerSelection)));
+    return 1;
+} else if (playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "rock") {
+    console.log(("You Win! You chose: ".concat(playerSelection)).concat(", Computer chose: ".concat(computerSelection)));
+    return 1;
+} else if (playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "paper") {
+    console.log(("You Win! You chose: ".concat(playerSelection)).concat(", Computer chose: ".concat(computerSelection)));
+  return 1;
+} else
+  console.log("It's a tie! you both chose: ".concat(computerSelection));
+
+
+}
+
+
+
+function game(computerSelection, playerSelection){
+    var pt1=0
+    var pt2=0
+    
+    for(var i = 0; i < 5; i++){
+
+        
+
+        var determine = 0;
+
+        playerSelection = prompt("Choose: Rock, Paper, Scissors");
+        computerSelection = computerPlay();
+
+        determine = playRound(computerSelection, playerSelection);
+
+        if (determine == 1){
+            pt1+=1;
+        }
+        else if(determine == 2)
+            pt2+=1;
+        else
+            pt1+=0;
+
+    }
+    if(pt1 > pt2){
+        console.log(("Player wins! You won: ".concat(pt1)).concat(", Computer won: ".concat(pt2)))
+    }
+    else if(pt2 > pt1){
+        console.log(("Player Loose! You won: ".concat(pt1)).concat(", Computer won: ".concat(pt2)))
+    }
+   
+    else console.log("Broke");
+
+}
+game(computerSelection, playerSelection);
+
+</script>
